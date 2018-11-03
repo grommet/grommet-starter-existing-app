@@ -1,7 +1,6 @@
 {
-  "name": "create-react-app",
-  "version": "3.2.2",
-  "private": true,
+  "name": "grommet-starter-existing-app",
+  "version": "1.0.0",
   "dependencies": {
     "@material-ui/core": "latest",
     "prop-types": "latest",

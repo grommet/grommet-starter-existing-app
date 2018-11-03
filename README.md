@@ -1,21 +1,23 @@
-# Create React App example
+# Grommet Starter - Existing App
 
-## How to use
+Welcome :tada:! Thanks for your interest in migrating your app to use Grommet.
+This repository is a tutorial that aims to help you in the process of using Grommet in
+an existing app.
 
-Download the example [or clone the repo](https://github.com/mui-org/material-ui):
+## Getting Started
+
+Clone or fork this example in your local machine.
 
 ```bash
-curl https://codeload.github.com/mui-org/material-ui/tar.gz/master | tar -xz --strip=2 material-ui-master/examples/create-react-app
-cd create-react-app
+git clone https://github.com/grommet/grommet-starter-existing-app.git my-app
+cd my-app
 ```
 
-Install it and run:
+Install dependencies and start the development server.
 
 ```bash
 npm install
 npm run start
 ```
 
-## The idea behind the example
-
-[Create React App](https://github.com/facebookincubator/create-react-app) with no build configuration.
+You should see a [Material UI](https://material-ui.com) example pricing page.
