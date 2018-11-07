@@ -1,7 +1,7 @@
 # Grommet Starter - Existing App
 
 Welcome :tada:! Thanks for your interest in using Grommet in your existing application.
-This repository is a step-by-step guide on how successfully integrate Grommet in your workflow.
+This repository is a step-by-step guide on how to successfully integrate Grommet in your workflow.
 
 :warning: This tutorial is still being created and not ready for consumption.
 
@@ -80,7 +80,7 @@ const theme = {
 <Grommet theme={theme}>
 ```
 
-This will change will affect all components under this given `Grommet` instance.
+This theme will propagate to all components under this given `Grommet` instance.
 Keep in mind that this change would not affect most of the text inside this example since Material UI
 is setting the styles for their typography. We intentially left a `p` tag where you can see
 this change in action.
@@ -137,7 +137,7 @@ You are now in full control over AppBar since the component lives
 in your application. AppBar is just a Box with `row` direction that has 2 children.
 These elements are justified `between` (a space will be added in between them) so that the title is on the left and the buttons are on the right. We add an `elevation` to simulate the same box-shadow from the original example.
 
-You can now start noticing a few differences in the header size, elevation, and colors. By default grommet comes with a 24px base spacing unit. So `small` is 12px and `medium` is `24px`. It seems that `small` in Material UI is `14px`. Let's change our theme object to align better with Material UI.
+You can now start noticing a few differences in the header size, elevation, and colors. By default grommet comes with a 24px base spacing unit scale. So `small` is 12px and `medium` is `24px`. It seems that `small` in Material UI is `14px`. Let's change our theme object to align better with Material UI.
 
 ```diff
 const theme = {
