@@ -3,8 +3,6 @@
 Welcome :tada:! Thanks for your interest in using Grommet in your existing application.
 This repository is a step-by-step guide on how to successfully integrate Grommet in your workflow.
 
-:warning: This tutorial is still being created and not ready for consumption.
-
 ## Getting Started
 
 Clone or fork this example in your local machine.
@@ -34,7 +32,7 @@ This is the application we are going to use as a reference to add Grommet in.
 To add grommet you first need to install our packages
 
 ```bash
-npm install grommet grommet-icons styled-components polished --save
+npm install grommet@next grommet-icons styled-components polished --save
 ```
 
 You can now add the import of the `Grommet` component.
