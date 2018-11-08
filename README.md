@@ -43,7 +43,7 @@ import { withStyles } from '@material-ui/core/styles';
 ```
 
 Typically, you should include Grommet only once as one of your top-level nodes.
-Let's replace `React.Fragment` with `Grommet` inside `src/pages/index.js`.
+Let's replace `React.Fragment` with `Grommet`.
 
 ```diff
 - <React.Fragment>
