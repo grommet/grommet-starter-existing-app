@@ -310,13 +310,13 @@ const theme = {
 };
 ```
 
-There is a lot going on here. The button theme entry have a handful set of pre-defined variables. But it is pretty much impossible for us to map all the possible variations you may want in your button or any other component. The common ones (border, padding, ...) are present, but you can always use the `extend` to customize things further. This entry is present in all components in grommet.
+There is a lot going on here. Let's digest it. The button theme entry has a handful set of pre-defined variables. But it is pretty much impossible for us to map all the possible variations you may want in your button or any other component really. The common ones (border, padding, ...) are present, but you can always use the `extend` to customize things further. This entry is present in all components in grommet.
 
 The extend can receive a string or a function. A string will apply the given styles to *all* component instances. A function will receive the props of the given component and then you can make dynamic decisions on which styles to apply given the state of the component.
 
-The Material UI button text is always uppercase and have a different font-size than ours. Also, the hover interactions are different. Material UI uses an alpha channel based on the color prop to add some hover interactions. We are using `polished` to be able to pass any color and let them convert to `rgb` accordingly. We are also using `normalizeColor` to transform `primary` into `#303f9f`.
+The Material UI button text is always uppercase and have a different font-size than ours. Also, the hover interactions are different. Material UI uses an alpha channel based on the color prop to add some hover interactions. We are using `polished` to be able to pass any color and let them convert it to `rgb` accordingly. We are also using `normalizeColor` to transform `primary` into `#303f9f`.
 
-You may have noticed that `colorValue` is being used instead of `color`, the actual prop name. This happens because styled-components honors and passes down all valid DOM attributes, and color is one of them. The problem is that we don't want color to be added to the DOM, we only use it for styling reasons. So avoid this "leaking" problem we added the `Value` suffix. This is a convention in Grommet for all other valid DOM attributes used.
+You may have noticed that `colorValue` is being used instead of `color`, the actual prop name. This happens because styled-components honors and passes down all valid DOM attributes, and color is one of them. The problem is that we don't want color to be added to the DOM, we only use it for styling reasons. To avoid this "leaking" problem we added the `Value` suffix. This is a convention in Grommet for all other valid DOM attributes used.
 
 Using extend at this level is a very advanced use case of Grommet. But if you are integrating to an existing app we assume that you want to have the same look and feel as before.
 
@@ -329,7 +329,7 @@ We will keep updating this starter page with more steps. The latest completed ve
 Grommet can co-exist with other frameworks. We will never add global styles that will affect your existing components. Although the reverse is not true. By helping other teams migrate to Grommet, we have identified a common problem: global CSS modifiers affecting Grommet components. Whenever you see something weird, try to [reproduce](https://codesandbox.io/s/m7mml8l0zj) it outside your application environment.
 
 If you are able to reproduce it, be nice, file an [issue](https://github.com/grommet/grommet/issues/new).
-If you cannot reproduce it, inspect your elements, and you will probably find some global CSS applying changes to Grommet components. As always, you can join our [Slack](https://slackin.grommet.io) and share you pain with us.
+If you cannot reproduce it, inspect your elements, and you will probably find some global CSS applying unexpected overly opinionated changes to our components. As always, you can join our [Slack](https://slackin.grommet.io) and share your pain with us.
 
 Finally here are some additional pointers to keep you engaged:
 
@@ -337,5 +337,5 @@ Finally here are some additional pointers to keep you engaged:
 2) [Grommet Storybook](https://storybook.grommet.io) - a lot of examples on how to use our components. Most of them are not real app scenarios though. They are there to illustrate our different props.
 3) [Grommet Sandbox](https://codesandbox.io/s/github/grommet/grommet-sandbox) - more friendly when you want to edit and play with the examples, also does not have real app scenarios.
 4) [Grommet Vending](https://github.com/grommet/grommet-vending) - a sample app done in v2.
-5) [Grommet Controls](https://grommet-nextjs.herokuapp.com/add-ons) - higher level grommet components maintained by our one of our external contributors [Atanas Stoyanov](https://github.com/atanasster)
+5) [Grommet Controls](https://grommet-nextjs.herokuapp.com/add-ons) - higher level grommet components maintained by one of our external contributors [Atanas Stoyanov](https://github.com/atanasster)
 6) [Grommet Site](https://github.com/grommet/grommet-site) - site for v2 implement in grommet v2, of course.
