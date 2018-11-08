@@ -338,4 +338,4 @@ Finally here are some additional pointers to keep you engaged:
 3) [Grommet Sandbox](https://codesandbox.io/s/github/grommet/grommet-sandbox) - more friendly when you want to edit and play with the examples, also does not have real app scenarios.
 4) [Grommet Vending](https://github.com/grommet/grommet-vending) - a sample app done in v2.
 5) [Grommet Controls](https://grommet-nextjs.herokuapp.com/add-ons) - higher level grommet components maintained by one of our external contributors [Atanas Stoyanov](https://github.com/atanasster)
-6) [Grommet Site](https://github.com/grommet/grommet-site) - site for v2 implement in grommet v2, of course.
+6) [Grommet Site](https://github.com/grommet/grommet-site) - site for v2 implemented in grommet v2, of course.
