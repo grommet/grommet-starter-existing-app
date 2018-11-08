@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "dependencies": {
     "@material-ui/core": "latest",
+    "grommet": "^2.0.0-rc",
+    "grommet-icons": "^3.2.0",
     "prop-types": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "react-scripts": "latest"
+    "react-scripts": "latest",
+    "styled-components": "^4.0.3"
   },
   "scripts": {
     "start": "react-scripts start",

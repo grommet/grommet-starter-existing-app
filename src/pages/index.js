@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -9,21 +8,17 @@ import CardContent from '@material-ui/core/CardContent';
 import CardHeader from '@material-ui/core/CardHeader';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import { Box, Button as GrommetButton, Grommet } from 'grommet';
+import { rgba } from 'polished';
+import { normalizeColor } from 'grommet/utils';
 
 const styles = theme => ({
   '@global': {
     body: {
       backgroundColor: theme.palette.common.white,
     },
-  },
-  appBar: {
-    position: 'relative',
-  },
-  toolbarTitle: {
-    flex: 1,
   },
   layout: {
     width: 'auto',
@@ -114,25 +109,86 @@ const footers = [
   },
 ];
 
+const theme = {
+  global: {
+    colors: {
+      'light-2': '#f5f5f5',
+      'text': {
+        'light': 'rgba(0, 0, 0, 0.87)',
+      },
+      'primary': '#3f51b5',
+    },
+    edgeSize: {
+      small: '14px',
+    },
+    elevation: {
+      light: {
+        medium: '0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)',
+      },
+    },
+    font: {
+      size: '14px',
+      height: '20px',
+    },
+  },
+  button: {
+    border: {
+      width: '1px',
+      radius: '4px',
+    },
+    padding: {
+      vertical: '8px',
+      horizontal: '16px',
+    },
+    extend: props => `
+      text-transform: uppercase;
+      font-size: 0.875rem;
+      font-weight: 500;
+      line-height: normal;
+
+      ${!props.primary && `
+        border-color: ${rgba(normalizeColor(props.colorValue, props.theme), 0.5)};
+        color: ${normalizeColor(props.colorValue, props.theme)};
+        :hover {
+          box-shadow: none;
+          background-color: ${rgba(normalizeColor(props.colorValue, props.theme), 0.08)};
+        }
+      `}
+
+    `,
+  },
+};
+
+const AppHeader = (props) => (
+  <Box
+    tag='header'
+    direction='row'
+    align='center'
+    justify='between'
+    background='light-2'
+    pad={{ vertical: 'small', horizontal: 'medium' }}
+    elevation='medium'
+    {...props}
+  />
+);
+
 function Pricing(props) {
   const { classes } = props;
 
   return (
-    <React.Fragment>
+    <Grommet theme={theme}>
       <CssBaseline />
-      <AppBar position="static" color="default" className={classes.appBar}>
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-            Company name
-          </Typography>
+      <AppHeader>
+        <Typography variant="h6" color="inherit" noWrap>
+          Company name
+        </Typography>
+        <Box direction='row'>
           <Button>Features</Button>
           <Button>Enterprise</Button>
           <Button>Support</Button>
-          <Button color="primary" variant="outlined">
-            Login
-          </Button>
-        </Toolbar>
-      </AppBar>
+          <GrommetButton color="primary" label='Login' />
+        </Box>
+      </AppHeader>
       <main className={classes.layout}>
         {/* Hero unit */}
         <div className={classes.heroContent}>
@@ -201,7 +257,7 @@ function Pricing(props) {
         </Grid>
       </footer>
       {/* End footer */}
-    </React.Fragment>
+    </Grommet>
   );
 }
 
