@@ -34,7 +34,7 @@ This is the application we are going to use as a reference to add Grommet in.
 To add grommet you first need to install our packages
 
 ```bash
-npm install grommet grommet-icons styled-components --save
+npm install grommet grommet-icons styled-components polished --save
 ```
 
 You can now add the import of the `Grommet` component.
@@ -82,7 +82,7 @@ const theme = {
 
 This theme will propagate to all components under this given `Grommet` instance.
 Keep in mind that this change would not affect most of the text inside this example since Material UI
-is setting the styles for their typography. We intentially left a `p` tag where you can see
+is setting the styles for their typography. We intentially added a `p` tag where you can see
 this change in action.
 
 ## Using Box
@@ -134,7 +134,7 @@ Let's replace `AppBar` and `Toolbar` with Grommet Boxes.
 ```
 
 You are now in full control over AppBar since the component lives
-in your application. AppBar is just a Box with `row` direction that has 2 children.
+in your application. AppBar is just a Box with `row` direction that has two children.
 These elements are justified `between` (a space will be added in between them) so that the title is on the left and the buttons are on the right. We add an `elevation` to simulate the same box-shadow from the original example.
 
 You can now start noticing a few differences in the header size, elevation, and colors. By default grommet comes with a 24px base spacing unit scale. So `small` is 12px and `medium` is `24px`. It seems that `small` in Material UI is `14px`. Let's change our theme object to align better with Material UI.
@@ -167,7 +167,12 @@ const theme = {
 
 We now have a 1:1 parity with the original example.
 
-We change the app font color through the `colors.text` entry. Keep in mind that you can create colors with any name, `light-2` was just an example. You can also add new `edgeSize` and `elevation` names, for example:
+Notice that we started to add custom colors in our theme. You can create colors with any name, `light-2` was just an example.
+Another great feature that is available to you is to use one color that has two variations: `dark` and `light`.
+This is very useful when you want to apply a different color depending on your context. For example, use a light text color in a dark background, and vice-versa.
+We have created this [codesandbox](https://codesandbox.io/s/213mry1mnj) with more details on color usage.
+
+You can also add new `edgeSize` and `elevation` names, for example:
 
 ```javascript
 const anotherTheme = {
@@ -216,4 +221,101 @@ const styles = theme => ({
   ...
 }
 ```
-More to come...
+
+## Using Button
+
+Now let's try to replace a Material UI button with the Grommet [one](https://v2.grommet.io/button).
+
+As usual, let's first import the component.
+
+```diff
+- import { Grommet } from 'grommet';
++ import { Box, Button as GrommetButton, Grommet } from 'grommet';
+```
+
+Inside the `AppBar` let's replace the Login button.
+
+```diff
+<Box direction='row'>
+  <Button>Features</Button>
+  <Button>Enterprise</Button>
+  <Button>Support</Button>
+- <Button color="primary" variant="outlined">
+-   Login
+- </Button>
++ <GrommetButton color="primary" label='Login' />
+</Box>
+```
+
+You will see that color primary is being transferred to the browser. Since we don't have that color in our theme, we just assume you want to use that directly. But this is wrong. In fact, the look and feel of the button is quite different. Where we fix this?
+
+If you guessed the theme object, you are learning my friend.
+
+We will need the `polished` package for this example. Also, we will need `normalizeColor` from grommet.
+
+```diff
+import { Box, Button as GrommetButton, Grommet } from 'grommet';
++ import { normalizeColor } from 'grommet/utils';
++ import { rgba } from 'polished';
+```
+
+Let's fix the button theme to match the other ones. You can find the entire Button theme spec at our [site](https://v2.grommet.io/button).
+
+```diff
+const theme = {
+  global: {
+    colors: {
+      'light-2': '#f5f5f5',
+      'text': {
+        'light': 'rgba(0, 0, 0, 0.87)',
+      },
+      'primary': '#303f9f',
+    },
+    edgeSize: {
+      small: '14px',
+    },
+    elevation: {
+      light: {
+        medium: '0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)',
+      },
+    },
+    font: {
+      size: '14px',
+      height: '20px',
+    },
+  },
++ button: {
++   border: {
++     width: '1px',
++     radius: '4px',
++   },
++   padding: {
++     vertical: '8px',
++     horizontal: '16px',
++   },
++   extend: props => `
++     text-transform: uppercase;
++     font-size: 0.875rem;
++     font-weight: 500;
++     line-height: normal;
++
++    ${!props.primary && `
++      border-color: ${rgba(normalizeColor(props.colorValue, props.theme), 0.5)};
++      color: ${normalizeColor(props.colorValue, props.theme)};
++      :hover {
++         box-shadow: none;
++         background-color: ${rgba(normalizeColor(props.colorValue, props.theme), 0.08)};
++       }
++     `}
++   `,
++ },
+};
+```
+
+There is a lot going on here. The button theme entry have pre-defined variables. But it is pretty much impossible for us to map all the possible variations you may want in your button. The common ones (border, padding, ...) are present, but you can always use the `extend` to customize things further. The extend can receive a string or a function. A string will always apply the given styles to all component instances. A function will receive the props of the given component and then you can make dynamic decisions on which styles to apply given the state of the component.
+
+The material UI buttons are always uppercase, and have a different font-size than ours. Also, the hover interactions are different. Material UI uses an alpha channel based on the color prop to add some hover interactions. We are using `polished` to be able to pass any color and convert to `rgb`. We are also using `normalize` color to transform `primary` into `#303f9f`.
+
+This is already a very advanced use case of Grommet, but if you are integrating to an existing app we assume that you want to have the same look and feel as before.
+
+Join our [Slack](https://slackin.grommet.io) if you have any questions about theming.
