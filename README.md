@@ -193,7 +193,7 @@ const anotherTheme = {
 </Grommet>
 ```
 
-We can now start cleaning up few unused variables:
+We can now start cleaning up a few unused variables:
 
 ```diff
 - import AppBar from '@material-ui/core/AppBar';
