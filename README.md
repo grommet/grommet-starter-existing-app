@@ -314,7 +314,7 @@ const theme = {
 
 There is a lot going on here. The button theme entry have pre-defined variables. But it is pretty much impossible for us to map all the possible variations you may want in your button. The common ones (border, padding, ...) are present, but you can always use the `extend` to customize things further. The extend can receive a string or a function. A string will always apply the given styles to all component instances. A function will receive the props of the given component and then you can make dynamic decisions on which styles to apply given the state of the component.
 
-The material UI buttons are always uppercase, and have a different font-size than ours. Also, the hover interactions are different. Material UI uses an alpha channel based on the color prop to add some hover interactions. We are using `polished` to be able to pass any color and convert to `rgb`. We are also using `normalize` color to transform `primary` into `#303f9f`.
+The material UI buttons are always uppercase, and have a different font-size than ours. Also, the hover interactions are different. Material UI uses an alpha channel based on the color prop to add some hover interactions. We are using `polished` to be able to pass any color and let them convert to `rgb` accordingly. We are also using `normalizeColor` to transform `primary` into `#303f9f`.
 
 This is already a very advanced use case of Grommet, but if you are integrating to an existing app we assume that you want to have the same look and feel as before.
 
