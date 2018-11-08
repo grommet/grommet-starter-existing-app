@@ -16,7 +16,7 @@ Install dependencies and start the development server.
 
 ```bash
 npm install
-npm run start
+npm start
 ```
 
 You should see a [Material UI](https://material-ui.com) example pricing page.
