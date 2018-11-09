@@ -222,7 +222,7 @@ const styles = theme => ({
 
 ## Using Button
 
-Now let's try to replace a Material UI button with the Grommet [one](https://v2.grommet.io/button).
+Now let's try to replace a Material UI button with the [Grommet button](https://v2.grommet.io/button).
 
 As usual, let's first import the component.
 
@@ -333,7 +333,7 @@ If you cannot reproduce it, inspect your elements, and you will probably find so
 
 Finally, here are some additional pointers to keep you engaged:
 
-1) [Starting Grommet from stratch tutorial](https://github.com/grommet/grommet-starter-new-app)
+1) [Starting Grommet from scratch tutorial](https://github.com/grommet/grommet-starter-new-app)
 2) [Grommet Storybook](https://storybook.grommet.io) - a lot of examples on how to use our components. Most of them are not real app scenarios though. They are there to illustrate our different props.
 3) [Grommet Sandbox](https://codesandbox.io/s/github/grommet/grommet-sandbox) - more friendly when you want to edit and play with the examples, also does not have real app scenarios.
 4) [Grommet Vending](https://github.com/grommet/grommet-vending) - a sample app done in v2.
