@@ -15,8 +15,8 @@ cd my-app
 Install dependencies and start the development server.
 
 ```bash
-npm install
-npm start
+yarn install
+yarn start
 ```
 
 You should see a [Material UI](https://material-ui.com) example pricing page.
@@ -32,7 +32,7 @@ This is the application we are going to use as a reference to add Grommet in.
 To add grommet you first need to install our packages
 
 ```bash
-npm install grommet styled-components polished --save
+yarn add grommet styled-components polished --save
 ```
 
 You can now add the import of the `Grommet` component.
@@ -176,19 +176,19 @@ You can also add new `edgeSize` and `elevation` names, for example:
 const anotherTheme = {
   global: {
     edgeSize: {
-      smallish: '14px',
+      smallish: "14px",
     },
     elevation: {
-      depth5: '0 0 1px 0 rgba(0,0,0,0.10), 0 2px 4px 0 rgba(0,0,0,0.10)',
+      depth5: "0 0 1px 0 rgba(0,0,0,0.10), 0 2px 4px 0 rgba(0,0,0,0.10)",
     },
   },
 };
 
 <Grommet theme={anotherTheme}>
-  <Box margin={{ top: 'smallish' }} elevation='depth5'>
+  <Box margin={{ top: "smallish" }} elevation="depth5">
     Hello Grommet!
   </Box>
-</Grommet>
+</Grommet>;
 ```
 
 We can now start cleaning up a few unused variables:
@@ -312,7 +312,7 @@ const theme = {
 
 There is a lot going on here. Let's digest it. The button theme entry has a handful set of pre-defined variables. But it is pretty much impossible for us to map all the possible variations you may want in your button or any other component really. The common ones (border, padding, ...) are present, but you can always use the `extend` to customize things further. This entry is present in all components in grommet.
 
-The extend can receive a string or a function. A string will apply the given styles to *all* component instances. A function will receive the props of the given component and then you can make dynamic decisions on which styles to apply given the state of the component.
+The extend can receive a string or a function. A string will apply the given styles to _all_ component instances. A function will receive the props of the given component and then you can make dynamic decisions on which styles to apply given the state of the component.
 
 The Material UI button text is always uppercase and have a different font-size than ours. Also, the hover interactions are different. Material UI uses an alpha channel based on the color prop to add some hover interactions. We are using `polished` to be able to pass any color and let them convert it to `rgb` accordingly. We are also using `normalizeColor` to transform `primary` into `#303f9f`.
 
@@ -333,9 +333,7 @@ If you cannot reproduce it, inspect your elements, and you will probably find so
 
 Finally, here are some additional pointers to keep you engaged:
 
-1) [Starting Grommet from scratch tutorial](https://github.com/grommet/grommet-starter-new-app)
-2) [Grommet Storybook](https://storybook.grommet.io) - a lot of examples on how to use our components. Most of them are not real app scenarios though. They are there to illustrate our different props.
-3) [Grommet Sandbox](https://codesandbox.io/s/github/grommet/grommet-sandbox) - more friendly when you want to edit and play with the examples, also does not have real app scenarios.
-4) [Grommet Vending](https://github.com/grommet/grommet-vending) - a sample app done in v2.
-5) [Grommet Controls](https://grommet-nextjs.herokuapp.com/add-ons) - higher level grommet components maintained by one of our external contributors [Atanas Stoyanov](https://github.com/atanasster).
-6) [Grommet Site](https://github.com/grommet/grommet-site) - site for v2 implemented in grommet v2, of course.
+1. [Starting Grommet from scratch tutorial](https://github.com/grommet/grommet-starter-new-app)
+2. [Grommet Storybook](https://storybook.grommet.io) - a lot of examples on how to use our components. Most of them are not real app scenarios though. They are there to illustrate our different props.
+3. [Grommet Sandbox](https://codesandbox.io/s/github/grommet/grommet-sandbox) - more friendly when you want to edit and play with the examples, also does not have real app scenarios.
+4. [Grommet Site](https://github.com/grommet/grommet-site) - site for v2 implemented in grommet v2, of course.
